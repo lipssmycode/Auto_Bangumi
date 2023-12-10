@@ -104,5 +104,5 @@ class TitleParser:
             return None
 
     @staticmethod
-    def mikan_parser(homepage: str) -> tuple[str, str]:
+    def mikan_parser(homepage: str) -> tuple[str, str, str]:
         return mikan_parser(homepage)

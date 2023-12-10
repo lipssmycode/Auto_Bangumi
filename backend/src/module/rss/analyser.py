@@ -15,7 +15,7 @@ class RSSAnalyser(TitleParser):
     def official_title_parser(self, bangumi: Bangumi, rss: RSSItem, torrent: Torrent):
         if rss.parser == "mikan":
             try:
-                bangumi.poster_link, bangumi.official_title = self.mikan_parser(
+                bangumi.poster_link, bangumi.official_title, bangumi.year = self.mikan_parser(
                     torrent.homepage
                 )
             except AttributeError:
