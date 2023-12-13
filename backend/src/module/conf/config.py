@@ -17,7 +17,7 @@ try:
     from module.__version__ import VERSION
 except ImportError:
     logger.info("Can't find version info, use DEV_VERSION instead")
-    VERSION = "DEV"
+    VERSION = "local"
 
 CONFIG_PATH = (
     CONFIG_ROOT / "config_dev.json"
