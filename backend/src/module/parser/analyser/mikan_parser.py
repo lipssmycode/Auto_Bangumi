@@ -41,11 +41,15 @@ def get_year(soup: BeautifulSoup) -> str:
         return ""
     for info in infos:
         text = info.text
-        if text.startswith('放送开始：'):
-            s = text.split('/')
+        if text.startswith('发布日期'):
+            s = re.search(r'\d+/\d+/\d+', text)
+            if s is None:
+                continue
+            s = s.group()
+            s = s.split('/')
             if len(s) == 0:
                 continue
-            year = s[-1]
+            year = s[0]
             if year.isdigit() and len(year) == 4:
                 return year
     return ""
