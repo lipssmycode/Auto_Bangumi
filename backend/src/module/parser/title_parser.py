@@ -105,4 +105,5 @@ class TitleParser:
 
     @staticmethod
     def mikan_parser(homepage: str) -> tuple[str, str, str]:
+        logger.info(f"mikan_parser, homepage: {homepage}")
         return mikan_parser(homepage)
