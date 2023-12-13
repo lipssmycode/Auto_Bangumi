@@ -18,6 +18,8 @@ class RSSAnalyser(TitleParser):
                 bangumi.poster_link, bangumi.official_title, bangumi.year = self.mikan_parser(
                     torrent.homepage
                 )
+                logger.info(f"mikan rss parser, poster_link: {bangumi.poster_link}, "
+                            f"official_title: {bangumi.official_title}, year: {bangumi.year}")
             except AttributeError:
                 logger.warning("[Parser] Mikan torrent has no homepage info.")
                 pass
@@ -29,6 +31,8 @@ class RSSAnalyser(TitleParser):
             bangumi.year = year
             bangumi.season = season
             bangumi.poster_link = poster_link
+            logger.info(f"tmdb rss parser, poster_link: {bangumi.poster_link}, "
+                        f"official_title: {bangumi.official_title}, year: {bangumi.year}")
         else:
             pass
         bangumi.official_title = re.sub(r"[/:.\\]", " ", bangumi.official_title)
