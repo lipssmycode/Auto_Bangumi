@@ -58,6 +58,7 @@ class TorrentPath:
             f"{data.official_title} ({data.year})" if data.year else data.official_title
         )
         save_path = Path(settings.downloader.path) / folder / f"Season {data.season}"
+        logger.info(f"_gen_save_path, save_path:{save_path}")
         return str(save_path)
 
     @staticmethod
